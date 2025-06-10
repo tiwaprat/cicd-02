@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Kill old instance if running
 PID=$(lsof -ti:9090)
 if [ -n "$PID" ]; then
