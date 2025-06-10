@@ -1,10 +1,14 @@
 #!/bin/sh
 
-# Kill old instance if running
-PID=$(lsof -ti:9090)
+# Try to get PID of process using port 9090; suppress non-zero exit with '|| true'
+PID=$(lsof -ti:9090 || true)
+
 if [ -n "$PID" ]; then
-    kill -9 $PID
-    echo "Killed old app running on port 9090"
+    echo "Process found on port 9090 with PID: $PID"
+    # kill -9 $PID
+    # echo "Killed process $PID using port 9090"
+else
+    echo  "No process is currently using port 9090"
 fi
 
 # Start new instance in background and detach
