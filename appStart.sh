@@ -12,5 +12,5 @@ else
 fi
 
 # Start new instance in background and detach
-nohup java -jar /var/lib/jenkins/workspace/StudentApp/target/studentapp-1.0.0.jar --server.port=9090 &
+nohup java -jar target/studentapp-1.0.0.jar --server.port=9090 &
 disown
